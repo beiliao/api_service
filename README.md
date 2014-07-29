@@ -10,6 +10,7 @@
 	* 使用幼儿园许可码可以获取最新的幼儿园组织结构数据，包括幼儿园名称、班级列表
 	* 绑定卡片号码到某个家长（支持一卡批量绑定都多个帐号）
 	* 上传打卡信息
+	* 测试环境api地址：http://api.test.ibeiliao.com/index.php
 	
 
 ## 步骤一（人工）：申请第三方应用接入认证信息
@@ -38,9 +39,39 @@
 		* POST
 
 	+ curl请求实例
-		curl 
+		 `curl -X POST "http://api.test.ibeiliao.com/index.php" -d 'action=service/meta/get&appid=08560e99366c6653e9a408f154da734c&appsecret=c724f2d614aabc62376c94f67170c458&authkid=4b77d8e78c6ef930130170c13ee7ffc3'`
+ 
 
 	+ 返回实例
+		`
+		{
+			data: {
+				name: "0 贝聊幼儿园", 
+				createdatetime: "1376198719", 
+				status: 1, 
+				classes: [
+					{
+						id: "2566", 
+						name: ";,lmk"
+					}, 
+					{
+						id: "2474", 
+						name: "测试环境"
+					}, 
+					{
+						id: "2463", 
+						name: "萌妹一班"
+					}, 
+					{
+						id: "2439", 
+						name: "贝聊中班1"
+					}
+				]
+			}, 
+			errcode: 0, 
+			errmsg: ""
+		}
+		`
 
 
 

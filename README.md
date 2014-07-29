@@ -93,12 +93,24 @@
 	* data	（13632241882,XXX;13632231882,DDD;）（单个用户使用半角分号分隔，用户自己的手机号码和名称使用逗号分隔，手机号码长度固定11位，名称不超过20个中文字符）
 
 + HTTP方法
+
 	* POST
 
 + curl请求实例
-	curl 
+
+	`
+	curl -X POST "http://api.test.ibeiliao.com/index.php" -d 'action=service/card/match&appid=08560e99366c6653e9a408f154da734c&appsecret=c724f2d614aabc62376c94f67170c458&authkid=4b77d8e78c6ef930130170c13ee7ffc3&cardnum=dsdsdsds&classid=2474&data=13632241882,XXX;13632231882,DDD'
+	`
+ 
 
 + 返回实例
+
+`
+{
+	errcode: 0, 
+	errmsg: ""
+}
+`
 
 ## 步骤五（API）：上传卡片打卡信息
 
@@ -112,7 +124,7 @@
 	* action：（service/card/kick）
 	* authkid	（幼儿园授权码）
 	* cardnum	（卡号）
-	* time_kick （打卡时间，用户实际的打卡时间）
+	* time_kick （打卡时间，用户实际的打卡时间 unixtime 毫秒）
 	* image_base64 （图片内容，将图片的二进制内容先进行base64编码处理，然后使用该参数上传给贝聊）
 
 + HTTP方法
@@ -121,9 +133,19 @@
 
 + curl请求实例
 	
-	curl 
+	`
+	curl -X POST "http://api.test.ibeiliao.com/index.php" -d 'action=service/card/kick&appid=08560e99366c6653e9a408f154da734c&appsecret=c724f2d614aabc62376c94f67170c458&authkid=4b77d8e78c6ef930130170c13ee7ffc3&cardnum=dsdsdsds&time_kick=11111121&image_base64=iVBORw0KGgoAAAANSUhEUgAAAFoAAAAeCAYAAACsYQl4AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA9ZJREFUeNrsWl9P1EAQ35nuHYeSGOBEIiEm/nn0RQyo38L4ZOIXNPhBBOET+IRIhHiEF+Du+mfHmW0r5Wh7vbZ3YOwkl+7fudnfzs7O7iwQkWpo+oQNBLMhnVWxr+em9qfdzTXs7R6Zsv0XN1b12f6xf1dA3PCHY9tAlulIA7r79gkqCqRbopTsqiAjfEhZfpRoEqVBJYqD4JHS+kTF/w1cSmSzZL+ExP/DSbR5Y5IrDx1jXgQI30dElzYGAEzIEhQghukwzxJa2ZAzRsoMhbLbukTaMuO+wkNks7wUl/O3t/PTlAFaF9LArTUGmNrKH7ZZUC3gMrCORU7S9mOHIe00KYpBxgjwaMCgCMBXg8EH1elsJ+YCVQiCtiAbM0dkOuGXWlze4vx81NgxrveJ2nr771QTcwVgBjAkmXgAj399CpEbcl1AIgPFQIrM3I4ESRVEbBxJc4kAakj6Oc6QZfYB0AUHPZ44t7v52OV6t7cz2Yocq9G8zLUywUJv7/issbSR4r1eXVSOc85g+0U1GsfZ0gbkmyR4UBAsWHyqeh3drXVZzu0G5HQ6FbDJtGtw78RmFmf0XxLjs1xQq7Mbhd6DbtDMwdmXDbrYgW8MkFTYBo1uCPFmGpfX6ZdPg2fMdxKexgQdNBpjr6rsZhi6cBMOfBTgf4XKyMvu5zzb6To0upx2ZWlFWtuslTCuLo9v0dWVBu4kWm1kD7t+mLr9u47kAOIB5q2EoqskC7xJVlcRJUnX6KAuG10fVbWnaf2nZauLI83HUVJ3S6PHaXsVm357+wFpttN3S6Onoe3S71Y3XVCevXiahUan2cGyGprXL6uurJdTxwSBQh8QzMxMR3Kwk9jNvH7T5jnKq8yEMcj961fGOW2zbu8O3j1FZfyl3t7J7+YMmE4PXi4+h1b74NnuD7+iRoNp4MxBB2CAWNVG2+iC8hs4c4DWzkUckamg0QI0ug2ceTbacQF1NY3u7RzyTIFrowkN3aCljZVlsCGtw+peh41Uo3PegD0C8quVZQXO+em3X4VNa6EoeBiyobYNBCSDs2XPU/3+e7x/78vEPCJRzeDyI3TmPyeM3FW1vUaXwKtE0u01r8iOJjCt8CRHEviV9e5IGuSWUokckHTbLu1hJPSTh+joCy4dgMa+DdQiukmQa31uEIW2lLpqX9oHJ897CK3WSRkeNsLueWuq1Tq6AhputonkjMUNxylPFyQCbuxThvCJQxi9T8BsIHyfYCPmljd/xbtgmyzmVJ3uXn9yUPu7jrqo+2Yde18PS7uOVR/gTOOupjTQDdVLzdu7GdEfAQYA0GVEhPs9qdMAAAAASUVORK5CYII='
+	`
+  
 
 + 返回实例
+
+`
+{
+	errcode: 0, 
+	errmsg: ""
+}
+`
 
 
 ## API请求可能涉及到的错误码定义
